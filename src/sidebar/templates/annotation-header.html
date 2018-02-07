@@ -23,7 +23,11 @@
     <br>
     <span class="annotation-header__share-info">
       <a class="annotation-header__group"
-        target="_blank" ng-if="vm.group() && vm.group().url" href="{{vm.group().url}}">
+        ng-if="vm.group() && vm.group().type == 'open'">
+        <i class="h-icon-public"></i><span class="annotation-header__group-name">{{vm.group().name}}</span>
+      </a>
+      <a class="annotation-header__group"
+        target="_blank" ng-if="vm.group() && !vm.group().type == 'open' && vm.group().url" href="{{vm.group().url}}">
         <i class="h-icon-group"></i><span class="annotation-header__group-name">{{vm.group().name}}</span>
       </a>
       <span ng-show="vm.isPrivate"
